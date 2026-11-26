@@ -39,7 +39,7 @@ body.nav .scrim{opacity:1;pointer-events:auto}body.nav .drawer{transform:none}
 .drawer .call{margin-top:18px;color:var(--muted);font-size:14.5px}
 /* hero */
 .hero{position:relative;min-height:min(86vh,760px);display:flex;align-items:flex-end;overflow:hidden}.hero .wrap{width:100%}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1)}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1)}
 .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,9,13,.92) 0%,rgba(7,9,13,.7) 40%,rgba(7,9,13,.2) 75%),linear-gradient(180deg,rgba(7,9,13,0) 55%,var(--bg) 100%)}
 .hero img.bg{object-position:70% 30%}
 @media(max-width:700px){.hero:after{background:linear-gradient(180deg,rgba(7,9,13,.35) 0%,rgba(7,9,13,.75) 45%,var(--bg) 100%)}}
@@ -114,3 +114,6 @@ footer .legal{border-top:1px solid var(--line);margin-top:34px;padding-top:20px;
 
 .svc{grid-template-columns:repeat(3,1fr)}@media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}.svc .card{padding:18px}.svc .card p{display:none}.svc .card h3{font-size:18px}.svc .ico{margin-bottom:10px}.svc .more{margin-top:8px}}
 .hero h1{max-width:760px}
+
+.vids figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#000;position:relative}.vids video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.vids figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 14px 10px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-size:14.5px}
+@media (prefers-reduced-motion:reduce){.hero video{display:none}}
