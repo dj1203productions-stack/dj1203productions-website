@@ -109,7 +109,7 @@ panels = [
   + pkg("Middle School", "$1,000", "3 hours", full) + pkg("High School", "$1,300", "3 hours", full)
   + pkg("Prom / Homecoming", "$1,250", "2 hours", full) + pkg("Prom / Homecoming", "$1,500", "4 hours", full, "Most popular") + '</div>'),
  ("college", "College", "College events", "Every college package includes DJ/MC, 2 PA speakers, 2 subwoofers, wireless mic, full production lighting, wireless uplighting, totem towers and 2 moving head lights.",
-  '<div class="grid g4">' + pkg("Small Campus", "$1,200", "3 hours", []) + pkg("Greek Life", "$1,300", "3 hours", [])
+  '<div class="grid g3">' + pkg("Small Campus &amp; Greek Life", "$1,300", "3 hours", [])
   + pkg("Medium Campus", "$1,400", "4 hours", []) + pkg("Large Events / Formals", "$1,700", "4 hours", []) + '</div>'),
  ("weddings", "Weddings", "Wedding packages", "From an intimate reception to the whole day, one flat price.",
   '<div class="grid g3">' + pkg("Value", "$1,200", "4 hours", simple) + pkg("Standard", "$1,500", "6 hours", simple)
