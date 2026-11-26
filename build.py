@@ -218,9 +218,31 @@ terms = """<div class="page-hero"><div class="wrap"><h1>Terms &amp; conditions</
 <h2>Contact</h2><p>Reach us by phone at <a href="tel:2196084119">(219) 608-4119</a>, by email at <a href="mailto:chris@dj1203productions.com">chris@dj1203productions.com</a>, or through this website.</p></div></section>"""
 
 D = "DJ1203 Productions: South Bend DJ for weddings, school dances, parties and corporate events. Pro sound, lighting and upfront pricing."
-for f, t, body in [("index.html", "DJ1203 Productions | South Bend DJ, Sound & Lighting", home), ("packages.html", "Packages & Pricing | DJ1203 Productions", packages),
+ALL = [("index.html", "DJ1203 Productions | South Bend DJ, Sound & Lighting", home), ("packages.html", "Packages & Pricing | DJ1203 Productions", packages),
                    ("gallery.html", "Gallery | DJ1203 Productions", gallery), ("about.html", "About | DJ1203 Productions", about),
                    ("book.html", "Book Now | DJ1203 Productions", book), ("shop.html", "Shop Merch | DJ1203 Productions", shop),
-                   ("privacy.html", "Privacy Policy | DJ1203 Productions", privacy), ("terms.html", "Terms & Conditions | DJ1203 Productions", terms)]:
+                   ("privacy.html", "Privacy Policy | DJ1203 Productions", privacy), ("terms.html", "Terms & Conditions | DJ1203 Productions", terms)]
+for f, t, body in ALL:
     open(f, "w").write(shell(f, t, D, body))
+
+# ---------- EDM preview (served at /preview/, not indexed) ----------
+import os, re
+os.makedirs("preview", exist_ok=True)
+import math
+_pts = " ".join(f"L{x/2:.1f} {23 + 16*math.sin(x*0.045)*(0.35+0.65*abs(math.sin(x*0.004))):.1f}" for x in range(0, 2401, 6))
+WAVE = '<svg class="wave" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="wg" x1="0" x2="1"><stop offset="0" stop-color="#2bb3c9"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><path d="M0 23 ' + _pts + '" fill="none" stroke="url(#wg)" stroke-width="1.6"/></svg>'
+TICK = "".join(f"<span>{w}</span><b>&#9670;</b>" for w in ["Weddings", "School dances", "Quincea&ntilde;eras", "Proms &amp; homecoming", "College events", "Corporate", "Birthdays", "Holiday parties"])
+REVEAL = """<script>(function(){var els=document.querySelectorAll('main h2,main .card,main .photo,main .strip img,main .gal a,main .vids figure,main details.acc,main .embed');if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)})})();</script>"""
+for f, t, body in ALL:
+    if f == "index.html":
+        body = body.replace('<div class="wrap"><p class="eyebrow">South Bend', '<div class="wrap"><div class="eq" aria-hidden="true">' + "<i></i>" * 7 + '</div><p class="eyebrow">South Bend', 1)
+        body = body.replace('<h1>Where great music meets<br>unforgettable memories</h1>', '<h1>Where great music meets<br><span class="grad">unforgettable memories</span></h1>')
+        body = body.replace('</section>\n\n<section><div class="wrap"><p class="eyebrow">What we do', '</section>\n<div class="ticker" aria-label="Events we cover"><div>' + TICK * 2 + '</div></div>\n\n<section><div class="wrap"><p class="eyebrow">What we do', 1)
+    body = body.replace('<section class="alt"', WAVE + '<section class="alt"')
+    page = shell(f, t, D, body)
+    page = page.replace('<link rel="stylesheet" href="assets/site.css">', '<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/site-edm.css"><meta name="robots" content="noindex">')
+    page = page.replace('family=Oswald:wght@400;500;600', 'family=Oswald:wght@400;500;600;700')
+    page = re.sub(r'(src|href|poster)="assets/', r'\1="../assets/', page)
+    page = page.replace("</body>", REVEAL + "</body>")
+    open("preview/" + f, "w").write(page)
 print("built")
