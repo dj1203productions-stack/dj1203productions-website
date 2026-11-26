@@ -52,4 +52,4 @@ a.card:hover,.card:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(43
 .reel{position:absolute;inset:0}.reel .bg{opacity:0;transition:opacity 1.2s ease}.reel .bg.on{opacity:1}
 
 .review{margin:0;display:flex;flex-direction:column}.review blockquote{margin:10px 0 14px;font-size:17px;line-height:1.55;color:#dce4ee;flex:1}.review figcaption{color:var(--muted);font-size:14.5px;font-weight:600}
-.reviews{grid-template-columns:repeat(3,1fr)}@media(max-width:1000px){.reviews{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.reviews{grid-template-columns:1fr}}
+.reviews{grid-template-columns:repeat(3,1fr)}@media(max-width:1000px){.reviews{grid-template-columns:repeat(3,1fr)}@media(max-width:1000px){.reviews{grid-template-columns:repeat(2,1fr)}}}@media(max-width:760px){.reviews{grid-template-columns:1fr}}
