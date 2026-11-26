@@ -4,8 +4,8 @@
 <meta property="og:title" content="Packages &amp; Pricing | DJ1203 Productions"><meta property="og:description" content="DJ1203 Productions: South Bend DJ for weddings, school dances, parties and corporate events. Pro sound, lighting and upfront pricing.">
 <meta property="og:image" content="https://dj1203productions.com/assets/photos/henderson-djing-wide.jpg"><meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css"></head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/site-edm.css"></head>
 <body class="nojs">
 <div class="promo" id="promo">Get the glow &#10024; <b>FREE uplighting ($400 value)</b> with any package booked by Dec 31st! <a href="book.html" style="color:#fff">Book now &rarr;</a></div>
 <header class="hdr"><div class="wrap">
@@ -38,4 +38,4 @@ var tabs=document.querySelectorAll('.tabs button');function show(id){tabs.forEac
 tabs.forEach(function(t){t.onclick=function(){show(t.dataset.t);history.replaceState(null,'','#'+t.dataset.t);window.scrollTo({top:document.querySelector('.tabs').offsetTop-70,behavior:'smooth'})}});
 if(tabs.length){var h=location.hash.slice(1);show(document.getElementById(h)&&document.getElementById(h).classList.contains('panel')?h:tabs[0].dataset.t)}
 var lb=document.getElementById('lb');document.querySelectorAll('.gal a').forEach(function(a){a.onclick=function(e){e.preventDefault();lb.querySelector('img').src=a.href;lb.classList.add('on')}});lb.onclick=function(){lb.classList.remove('on')};
-</script></body></html>
+</script><script>(function(){var els=document.querySelectorAll('main h2,main .card,main .photo,main .strip img,main .gal a,main .vids figure,main details.acc,main .embed');if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)})})();</script></body></html>

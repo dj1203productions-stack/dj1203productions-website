@@ -48,3 +48,5 @@ a.card:hover,.card:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(43
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.eq i,.ticker div,.promo,.pkg.feat:before{animation:none}}
+
+.reel{position:absolute;inset:0}.reel .bg{opacity:0;transition:opacity 1.2s ease}.reel .bg.on{opacity:1}

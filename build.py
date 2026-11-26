@@ -66,7 +66,7 @@ cards = [("Weddings", "From the first dance to last call. Packages from $1,200, 
          ("Quincea&ntilde;eras", "Grand entrances, special dances and a party your family won't forget.", "packages.html#quince", "&#128081;"),
          ("Corporate", "Conferences, galas and company parties. Custom quotes based on your event.", "packages.html#quince", "&#127970;")]
 home = f"""
-<section class="hero"><video class="bg" autoplay muted loop playsinline preload="metadata" poster="assets/video/laser-show.jpg" aria-label="DJ1203 laser and lighting show"><source src="assets/video/laser-show.mp4" type="video/mp4"></video>
+<section class="hero"><div class="reel" aria-hidden="true"><video class="bg on" autoplay muted playsinline preload="auto" poster="assets/video/henderson-castle.jpg"><source src="assets/video/henderson-castle.mp4" type="video/mp4"></video><video class="bg" muted playsinline preload="none" poster="assets/video/laser-show.jpg"><source src="assets/video/laser-show.mp4" type="video/mp4"></video><video class="bg" muted playsinline preload="none" poster="assets/video/beams-booth.jpg"><source src="assets/video/beams-booth.mp4" type="video/mp4"></video></div>
 <div class="wrap"><p class="eyebrow">South Bend &middot; Michiana &middot; SW Michigan</p>
 <h1>Where great music meets<br>unforgettable memories</h1>
 <p>Pro-level sound, lighting and energy for weddings, school dances, parties and corporate events. Your hometown DJ, treating every client like a neighbor.</p>
@@ -222,16 +222,14 @@ ALL = [("index.html", "DJ1203 Productions | South Bend DJ, Sound & Lighting", ho
                    ("gallery.html", "Gallery | DJ1203 Productions", gallery), ("about.html", "About | DJ1203 Productions", about),
                    ("book.html", "Book Now | DJ1203 Productions", book), ("shop.html", "Shop Merch | DJ1203 Productions", shop),
                    ("privacy.html", "Privacy Policy | DJ1203 Productions", privacy), ("terms.html", "Terms & Conditions | DJ1203 Productions", terms)]
-for f, t, body in ALL:
-    open(f, "w").write(shell(f, t, D, body))
-
 # ---------- EDM preview (served at /preview/, not indexed) ----------
 import os, re
-os.makedirs("preview", exist_ok=True)
+import shutil; shutil.rmtree("preview", ignore_errors=True)
 import math
 _pts = " ".join(f"L{x/2:.1f} {23 + 16*math.sin(x*0.045)*(0.35+0.65*abs(math.sin(x*0.004))):.1f}" for x in range(0, 2401, 6))
 WAVE = '<svg class="wave" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="wg" x1="0" x2="1"><stop offset="0" stop-color="#2bb3c9"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs><path d="M0 23 ' + _pts + '" fill="none" stroke="url(#wg)" stroke-width="1.6"/></svg>'
 TICK = "".join(f"<span>{w}</span><b>&#9670;</b>" for w in ["Weddings", "School dances", "Quincea&ntilde;eras", "Proms &amp; homecoming", "College events", "Corporate", "Birthdays", "Holiday parties"])
+REEL = """<script>(function(){var v=document.querySelectorAll('.reel video');if(v.length<2)return;var i=0;function next(){var cur=v[i];i=(i+1)%v.length;var n=v[i];n.preload='auto';n.currentTime=0;var p=n.play();if(p&&p.catch)p.catch(function(){});n.classList.add('on');cur.classList.remove('on');setTimeout(function(){cur.pause()},1200)}v.forEach(function(x){x.addEventListener('ended',next)});})();</script>"""
 REVEAL = """<script>(function(){var els=document.querySelectorAll('main h2,main .card,main .photo,main .strip img,main .gal a,main .vids figure,main details.acc,main .embed');if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});els.forEach(function(el,i){el.classList.add('rv');el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)})})();</script>"""
 for f, t, body in ALL:
     if f == "index.html":
@@ -240,9 +238,8 @@ for f, t, body in ALL:
         body = body.replace('</section>\n\n<section><div class="wrap"><p class="eyebrow">What we do', '</section>\n<div class="ticker" aria-label="Events we cover"><div>' + TICK * 2 + '</div></div>\n\n<section><div class="wrap"><p class="eyebrow">What we do', 1)
     body = body.replace('<section class="alt"', WAVE + '<section class="alt"')
     page = shell(f, t, D, body)
-    page = page.replace('<link rel="stylesheet" href="assets/site.css">', '<link rel="stylesheet" href="../assets/site.css"><link rel="stylesheet" href="../assets/site-edm.css"><meta name="robots" content="noindex">')
+    page = page.replace('<link rel="stylesheet" href="assets/site.css">', '<link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/site-edm.css">')
     page = page.replace('family=Oswald:wght@400;500;600', 'family=Oswald:wght@400;500;600;700')
-    page = re.sub(r'(src|href|poster)="assets/', r'\1="../assets/', page)
-    page = page.replace("</body>", REVEAL + "</body>")
-    open("preview/" + f, "w").write(page)
+    page = page.replace("</body>", REVEAL + (REEL if f == "index.html" else "") + "</body>")
+    open(f, "w").write(page)
 print("built")
