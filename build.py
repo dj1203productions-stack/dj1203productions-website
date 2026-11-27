@@ -76,7 +76,7 @@ home = f"""
 <div class="grid svc" style="margin-top:26px">{"".join(f'<a class="card" href="{u}"><div class="ico">{i}</div><h3>{t}</h3><p>{d}</p><span class="more">See pricing &rarr;</span></a>' for t,d,u,i in cards)}</div></div></section>
 
 <section class="alt"><div class="wrap split">
-<div class="photo"><img src="assets/photos/booth-totems-moving-heads.jpg" alt="DJ1203 booth with lit totems and moving head lights" style="aspect-ratio:4/5"></div>
+<div class="photo"><img src="assets/photos/chris-henderson-smile.jpg" alt="Chris of DJ1203 Productions smiling behind his DJ booth at Henderson Castle" style="aspect-ratio:4/5"></div>
 <div><p class="eyebrow">Why DJ1203</p><h2>The full production, not just a playlist</h2>
 <p class="muted">Every package comes with a live DJ/MC, two PA speakers, two subwoofers and a wireless mic. Step up to uplighting, lighting totems and moving heads that turn any room into a dance floor.</p>
 {ticks(["Pro sound and lighting at every event", "Clean, radio-friendly music for school and youth events", "Fully insured. Certificates of insurance for your venue on request", "Hometown Heroes: 10% off for military, first responders, nurses, teachers and truck drivers"])}
