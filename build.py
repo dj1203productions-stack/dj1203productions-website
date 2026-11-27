@@ -153,7 +153,7 @@ gallery = f"""<div class="page-hero"><div class="wrap"><p class="eyebrow">Galler
 about = f"""<div class="page-hero"><div class="wrap"><p class="eyebrow">About DJ1203</p><h1>South Bend&rsquo;s hometown DJ</h1><p class="lead">Built on hard work and honoring the people who keep our community running.</p></div></div>
 <section><div class="wrap split"><div><h2>Our mission</h2><p class="muted">From weddings to school dances, our mission is to give every client pro-level sound, lighting and energy, and to treat them like neighbors, not invoices.</p>
 <p class="muted">We read the room, play the right song at the right moment, and bring a lighting rig that makes the night feel bigger. You get a DJ who shows up early, communicates clearly and gives every event 110%.</p>
-<p class="muted">Behind the scenes, Kelli helps coordinate the details so everything runs smoothly on the big day.</p>
+<p class="muted">Behind the scenes at DJ1203 Productions, Kelli helps coordinate the details so everything runs smoothly on the big day.</p>
 {ticks(["Weddings, quincea&ntilde;eras, school and church dances, college, corporate and private parties", "Clean, radio-friendly sets for school and youth events", "DJ1203 Productions, LLC: fully insured, with COIs for your venue"])}</div>
 <div class="photo"><img src="assets/photos/chris-kelli-booth.jpg" alt="Chris and Kelli of DJ1203 Productions in front of their lit booth and totems" style="aspect-ratio:4/5"></div></div></section>
 <section class="alt"><div class="wrap split"><div class="photo"><img src="assets/photos/booth-setup.jpg" alt="DJ1203 booth with the neon placard banner" style="aspect-ratio:4/5"></div>
