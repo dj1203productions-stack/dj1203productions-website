@@ -154,7 +154,7 @@ about = f"""<div class="page-hero"><div class="wrap"><p class="eyebrow">About DJ
 <section><div class="wrap split"><div><h2>Our mission</h2><p class="muted">From weddings to school dances, our mission is to give every client pro-level sound, lighting and energy, and to treat them like neighbors, not invoices.</p>
 <p class="muted">We read the room, play the right song at the right moment, and bring a lighting rig that makes the night feel bigger. You get a DJ who shows up early, communicates clearly and gives every event 110%.</p>
 {ticks(["Weddings, quincea&ntilde;eras, school and church dances, college, corporate and private parties", "Clean, radio-friendly sets for school and youth events", "DJ1203 Productions, LLC: fully insured, with COIs for your venue"])}</div>
-<div class="photo"><img src="assets/photos/henderson-full-setup.jpg" alt="DJ1203 setup at Henderson Castle" style="aspect-ratio:4/5"></div></div></section>
+<div class="photo"><img src="assets/photos/chris-kelli-booth.jpg" alt="Chris and Kelli of DJ1203 Productions in front of their lit booth and totems" style="aspect-ratio:4/5"></div></div></section>
 <section class="alt"><div class="wrap split"><div class="photo"><img src="assets/photos/booth-setup.jpg" alt="DJ1203 booth with the neon placard banner" style="aspect-ratio:4/5"></div>
 <div><p class="eyebrow" id="heroes">Hometown Heroes</p><h2>Thank you for what you do</h2><p class="muted">We proudly offer 10% off any base package to the people who keep our communities running:</p>
 {ticks(["Active-duty and retired military, Guard and Reserve", "First responders: police, fire and EMS", "Nurses", "Teachers", "Truck drivers"])}
