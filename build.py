@@ -8,6 +8,7 @@ YELP = "https://www.yelp.com/biz/oTMMmo0TyqCyp_4M7_vQAA"
 SOCIAL = [("Facebook", "https://www.facebook.com/DJ1203Productions"), ("Instagram", "https://www.instagram.com/DJ1203Productions"),
           ("TikTok", "https://www.tiktok.com/@DJ1203Productions"), ("YouTube", "https://www.youtube.com/@DJ1203Productions"),
           ("X", "https://www.x.com/DJ1203PRODUCTIONS"), ("Yelp", YELP)]
+LABS = '<a href="https://dj1203labs.com" target="_blank" rel="noopener">DJ1203 Labs &#8599;</a>'
 PAGES = [("index.html", "Home"), ("packages.html", "Packages & Pricing"), ("gallery.html", "Gallery"),
          ("about.html", "About"), ("book.html", "Book Now"), ("shop.html", "Shop")]
 
@@ -34,14 +35,14 @@ def shell(page, title, desc, body):
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" aria-label="Menu"><button class="x" id="closeBtn" aria-label="Close menu">&times;</button>
 <img src="assets/logo-headphones.png" alt="" style="height:54px;margin-bottom:6px">
-<h4>Explore</h4>{drawer}
+<h4>Explore</h4>{drawer}{LABS}
 <h4>Info</h4><a href="packages.html#policies">Travel &amp; policies</a><a href="book.html#agreement">Service agreement</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms &amp; conditions</a>
 <a class="btn" href="book.html">Check my date</a>
 <p class="call">Call or text <a href="tel:{TEL}">{PHONE}</a></p></aside>
 <main>{body}</main>
 <footer><div class="wrap"><div class="cols">
 <div><img src="assets/logo-headphones.png" alt="DJ1203 Productions" style="height:62px;margin-bottom:12px"><p>South Bend's hometown DJ. Pro sound, lighting and energy for weddings, school dances, parties and corporate events across Michiana.</p>{socials()}</div>
-<div><h5>Explore</h5>{"".join(f'<a href="{f}">{n}</a>' for f, n in PAGES)}</div>
+<div><h5>Explore</h5>{"".join(f'<a href="{f}">{n}</a>' for f, n in PAGES)}{LABS}</div>
 <div><h5>Info</h5><a href="packages.html#policies">Travel &amp; policies</a><a href="book.html#agreement">Service agreement</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms &amp; conditions</a></div>
 <div class="contact"><h5>Contact</h5><a href="tel:{TEL}">{PHONE}</a><a href="mailto:{EMAIL}">{EMAIL}</a><a href="mailto:{EMAIL2}">{EMAIL2}</a><p style="margin:8px 0 0">South Bend, Indiana<br>Mon&ndash;Fri, 9 am &ndash; 5 pm</p></div>
 </div><div class="legal">&copy; 2026 DJ 1203 Productions, LLC. All rights reserved. Fully insured.</div></div></footer>
